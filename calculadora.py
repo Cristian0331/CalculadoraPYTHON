@@ -1,4 +1,6 @@
 import tkinter as tk
+import math
+
 
 root = tk.Tk()
 root.title("Calculadora Básica")
@@ -66,6 +68,36 @@ for op in ["+", "-", "*", "/"]:
         command=lambda x=op: operar(x)
     ).pack(side="left", padx=5, pady=5)
 
+# -------------------------------
+# Botón raíz cuadrada
+# -------------------------------
+def raiz_cuadrada():
+    try:
+        valor = float(pantalla.get())
+        resultado = math.sqrt(valor)
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, resultado)
+    except:
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, "Error")
+
+tk.Button(
+    root, text="√", width=5, height=2, font=("Arial", 16),
+    command=raiz_cuadrada
+).pack(pady=5)
+
+# -------------------------------
+# Botón borrar último carácter    
+# -------------------------------
+def borrar_ultimo():
+    contenido = pantalla.get()
+    pantalla.delete(0, tk.END)
+    pantalla.insert(0, contenido[:-1])
+
+tk.Button(
+    root, text="←", width=5, height=2, font=("Arial", 16),
+    command=borrar_ultimo
+).pack(pady=5)
 
 # -------------------------------
 # Cálculo
