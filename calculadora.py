@@ -93,3 +93,4 @@ tk.Button(
 # MAINLOOP FINAL (Siempre al final)
 # -------------------------------
 root.mainloop()
+    
