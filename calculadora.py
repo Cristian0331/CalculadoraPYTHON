@@ -29,3 +29,14 @@ for fila in botones:
             fila_frame, text=b, width=5, height=2, font=("Arial", 16),
             command=lambda x=b: click(x)
         ).pack(side="left", padx=5, pady=5)
+def operar(op):
+    pantalla.insert(tk.END, op)
+
+ops = tk.Frame(root)
+ops.pack()
+
+for op in ["+", "-", "*", "/"]:
+    tk.Button(
+        ops, text=op, width=5, height=2, font=("Arial", 16),
+        command=lambda x=op: operar(x)
+    ).pack(side="left", padx=5, pady=5)
