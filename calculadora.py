@@ -40,3 +40,16 @@ for op in ["+", "-", "*", "/"]:
         ops, text=op, width=5, height=2, font=("Arial", 16),
         command=lambda x=op: operar(x)
     ).pack(side="left", padx=5, pady=5)
+def calcular():
+    try:
+        resultado = eval(pantalla.get())
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, resultado)
+    except:
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, "Error")
+
+tk.Button(
+    root, text="=", width=10, height=2, font=("Arial", 16),
+    bg="lightblue", command=calcular
+).pack(pady=10)
